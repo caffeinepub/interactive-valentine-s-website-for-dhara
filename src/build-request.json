@@ -1,36 +1,34 @@
 {
   "kind": "build_request",
-  "title": "Connect uploaded audio file to MusicPlayer for real playback",
+  "title": "Rename music button label to “For You”",
   "priority": "normal",
   "requirements": [
     {
-      "id": "REQ-19",
-      "text": "Configure the MusicPlayer to play the user-uploaded audio file for the track “Hum Tere Pyaar Mein — Lata Mangeshkar” by setting the runtime audio source (import.meta.env.VITE_HUM_TERE_PYAAR_MEIN_AUDIO_SRC) to the uploaded file’s public asset path, so clicking Play plays the real song (not the fallback tone).",
+      "id": "REQ-20",
+      "text": "Update the music player UI so the user-facing label for the music button is renamed to exactly “For You”. This should apply anywhere the music button text is displayed (e.g., collapsed/floating button label and any related toggle/button text in the music player component).",
       "target": "frontend",
       "source": {
         "messageIds": [
-          "msg-1"
+          "recent-messages"
         ],
         "quotes": [
-          "i have uploded it already"
+          "rename music button to For You"
         ]
       },
       "acceptanceCriteria": [
-        "When VITE_HUM_TERE_PYAAR_MEIN_AUDIO_SRC points to the uploaded audio file (a public asset path), pressing Play starts HTMLAudioElement playback of that file and loops it.",
-        "If the configured source is missing/empty/unplayable, the MusicPlayer continues to function and falls back to the existing generated-tone behavior without UI errors or crashes.",
-        "No Spotify link playback is attempted; playback uses only a direct audio file source (local public asset path)."
+        "The music button label displays exactly “For You” (matching capitalization and spacing).",
+        "No other UI text is unintentionally changed.",
+        "The music player continues to function normally (play/pause, volume, mute, and audio-source behavior remain unchanged)."
       ]
     }
   ],
   "constraints": [
-    "Frontend immutable paths must not be edited: frontend/src/hooks/useInternetIdentity.ts, frontend/src/hooks/useInternetIdentity.tsx, frontend/src/hooks/useActor.ts, frontend/src/main.tsx, frontend/src/components/ui.",
-    "Backend must remain single-actor; do not introduce additional backend services.",
-    "Use English for any user-facing text in the build request.",
-    "Spotify track links cannot be used as playable audio sources; only direct audio file URLs or local public assets are supported."
+    "Do not edit files under frontend/src/components/ui (read-only).",
+    "Do not edit immutable paths: frontend/src/hooks/useInternetIdentity.ts, frontend/src/hooks/useInternetIdentity.tsx, frontend/src/hooks/useActor.ts, frontend/src/main.tsx."
   ],
   "nonGoals": [
-    "Adding Spotify embed/integration or playing audio directly from open.spotify.com links.",
-    "Implementing backend storage, uploads, or audio hosting logic."
+    "Adding new tracks or changing the configured audio source (VITE_HUM_TERE_PYAAR_MEIN_AUDIO_SRC).",
+    "Changing the Valentine site theme, layout, or navigation behavior beyond updating the music button label."
   ],
   "imageRequirements": {
     "required": [],

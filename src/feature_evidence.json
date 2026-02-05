@@ -2,10 +2,10 @@
   "kind": "feature_evidence_report",
   "features": [
     {
-      "featureId": "feature-configure-the-musicplayer-to-play-the-user-uploaded-audio-file-for-the-track-hum-tere-pyaar-mein-lata-mangeshkar-by-setting-the-runtime-audio-source-import-meta-env-vite-hum-tere-pyaar-mein-audio-src-to-the-uploaded-file-s-public-asset-path-so-clicking-play-plays-the-real-song-not-the-fallback-tone",
-      "featureTitle": "Configure the MusicPlayer to play the user-uploaded audio file for the track “Hum Tere Pyaar Mein — Lata Mangeshkar” by setting the runtime audio source (import.meta.env.VITE_HUM_TERE_PYAAR_MEIN_AUDIO_SRC) to the uploaded file’s public asset path, so clicking Play plays the real song (not the fallback tone).",
+      "featureId": "feature-update-the-music-player-ui-so-the-user-facing-label-for-the-music-button-is-renamed-to-exactly-for-you-this-should-apply-anywhere-the-music-button-text-is-displayed-e-g-collapsed-floating-button-label-and-any-related-toggle-button-text-in-the-music-player-component",
+      "featureTitle": "Update the music player UI so the user-facing label for the music button is renamed to exactly “For You”. This should apply anywhere the music button text is displayed (e.g., collapsed/floating button label and any related toggle/button text in the music player component).",
       "files": [
-        "frontend/.env"
+        "frontend/src/components/MusicPlayer.tsx"
       ],
       "components": [
         "core-infrastructure@1.0.2",
@@ -15,7 +15,7 @@
         "github-export-icp-cli@1.0.0"
       ],
       "testIds": [
-        "REQ-19"
+        "REQ-20"
       ],
       "confidence": "high"
     }

@@ -7,7 +7,7 @@
   "frontend/src/components/FloatingHearts.tsx": "Animated floating hearts decoration with optimized count (12 hearts) continuously rising from bottom to top with randomized positions.",
   "frontend/src/components/FloatingMessages.tsx": "Romantic messages that float horizontally across the screen at different heights with staggered animations.",
   "frontend/src/components/Sparkles.tsx": "Randomly positioned sparkle animations that appear and disappear across the viewport for magical effect.",
-  "frontend/src/components/MusicPlayer.tsx": "Fixed music player with play/pause controls, volume slider, mute functionality, and track label \"Hum Tere Pyaar Mein — Lata Mangeshkar\" that supports HTMLAudioElement playback when a valid audio source is configured via environment variable, falling back to Web Audio API tone when no source is provided.",
+  "frontend/src/components/MusicPlayer.tsx": "Fixed music player with play/pause controls, volume slider, mute functionality, and track label \"Hum Tere Pyaar Mein — Lata Mangeshkar\" that displays \"For You\" when collapsed and not playing, supporting HTMLAudioElement playback when a valid audio source is configured via environment variable, falling back to Web Audio API tone when no source is provided.",
   "frontend/src/components/Footer.tsx": "Footer component with romantic branding for Dhara and attribution to caffeine.ai with correct year (2026).",
   "frontend/src/index.css": "Global styles with romantic pink/rose OKLCH color palette, cursive fonts, smooth scroll behavior, and custom animations including shimmer-glow with reduced-motion support.",
   "frontend/src/hooks/useQueries.ts": "Empty file as application is frontend-only with no backend queries required.",

@@ -1,6 +1,6 @@
 {
   "schemaVersion": "1.0.0",
-  "projectStateVersion": 13,
+  "projectStateVersion": 15,
   "summary": "Build a romantic, single-page Valentine’s Day website for Dhara with a cute/elegant design, customized welcome + love letter content, an interactive “Will you be my Valentine?” element (moving ‘No’ button and showing a provided bear-kiss GIF on ‘Yes’), optimized for mobile/desktop and fast performance, and include a music button with the track “Hum Tere Pyaar Mein” by Lata Mangeshkar.",
   "architectural_notes": [
     "Single-page responsive site; prioritize performance (lightweight assets, smooth interactions).",
@@ -148,6 +148,14 @@
         "REQ-19"
       ],
       "version": 1
+    },
+    {
+      "id": "feature-update-the-music-player-ui-so-the-user-facing-label-for-the-music-button-is-renamed-to-exactly-for-you-this-should-apply-anywhere-the-music-button-text-is-displayed-e-g-collapsed-floating-button-label-and-any-related-toggle-button-text-in-the-music-player-component",
+      "title": "Update the music player UI so the user-facing label for the music button is renamed to exactly “For You”. This should apply anywhere the music button text is displayed (e.g., collapsed/floating button label and any related toggle/button text in the music player component).",
+      "reqIds": [
+        "REQ-20"
+      ],
+      "version": 1
     }
   ],
   "new_feature_requests": [
@@ -224,6 +232,12 @@
     {
       "id": "AR-12",
       "summary": "Update the site’s music button to add the track “Hum Tere Pyaar Mein” by Lata Mangeshkar",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-13",
+      "summary": "Rename the music button label to “For You” (update the music player UI button text accordingly)",
       "reqIds": [],
       "status": "pending"
     }

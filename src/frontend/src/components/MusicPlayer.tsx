@@ -183,7 +183,7 @@ export default function MusicPlayer() {
               </div>
             ) : (
               <span className="text-sm text-rose-600 font-medium whitespace-nowrap">
-                {isPlaying ? '♪ Playing' : 'Music'}
+                {isPlaying ? '♪ Playing' : 'For You'}
               </span>
             )}
           </div>
