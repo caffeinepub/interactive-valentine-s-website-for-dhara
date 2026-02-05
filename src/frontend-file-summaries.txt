@@ -1,0 +1,15 @@
+{
+  "frontend/src/App.tsx": "Main application component managing section navigation between home, letter, and valentine sections with theme provider, floating animations, music player, and layout structure.",
+  "frontend/src/components/Header.tsx": "Responsive navigation header with mobile menu and section navigation buttons for Home, Be My Valentine, and Love Letter, featuring animated heart logo with Dhara's monogram.",
+  "frontend/src/components/Hero.tsx": "Landing page hero section featuring welcome message, Dhara's monogram, call-to-action buttons for Valentine proposal and love letter, and decorative heart frame.",
+  "frontend/src/components/LoveQuiz.tsx": "Interactive quiz component with 5 relationship questions, progress tracking, answer selection, and personalized results page with scoring.",
+  "frontend/src/components/LoveLetter.tsx": "Personal love letter section displaying a refined, concise, and emotionally impactful heartfelt message with decorative elements, cursive typography, romantic styling, and special closing line \"I will always love you more, mere nonuuu 💋\" with elegant shimmer animation.",
+  "frontend/src/components/FloatingHearts.tsx": "Animated floating hearts that continuously rise from bottom to top across the screen with randomized positions and timing.",
+  "frontend/src/components/FloatingMessages.tsx": "Romantic messages that float horizontally across the screen at different heights with staggered animations.",
+  "frontend/src/components/Sparkles.tsx": "Randomly positioned sparkle animations that appear and disappear across the viewport for magical effect.",
+  "frontend/src/components/MusicPlayer.tsx": "Fixed music player with play/pause controls, volume slider, and mute functionality using Web Audio API for romantic background tone.",
+  "frontend/src/components/Footer.tsx": "Footer component with romantic branding, attribution to caffeine.ai, and heart decorations.",
+  "frontend/src/index.css": "Global styles with romantic pink/red OKLCH color palette, cursive font imports (Great Vibes, Dancing Script), and custom animations including shimmer-glow for the love letter closing line, floating hearts, sparkles, and transitions.",
+  "frontend/src/hooks/useQueries.ts": "Empty file as application is frontend-only with no backend queries required.",
+  "frontend/src/components/ValentineProposal.tsx": "Interactive Valentine's proposal page with playful \"Yes/No\" buttons where \"No\" moves away on hover, confetti heart animation on \"Yes\", romantic success message, and a gif overlay featuring two bunnies kissing with the message \"I knew you'd make the right choice 💖\" that appears after clicking \"Yes\" with smooth fade-in animation and floating hearts."
+}
