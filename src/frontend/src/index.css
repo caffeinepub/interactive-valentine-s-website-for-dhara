@@ -44,6 +44,11 @@
             sans-serif;
         -webkit-font-smoothing: antialiased;
         -moz-osx-font-smoothing: grayscale;
+        scroll-behavior: smooth;
+    }
+
+    html {
+        scroll-behavior: smooth;
     }
 }
 
@@ -220,5 +225,18 @@
 
     .animate-shimmer-glow {
         animation: shimmer-glow 3s ease-in-out infinite;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+        .animate-float,
+        .animate-float-up,
+        .animate-float-across,
+        .animate-sparkle,
+        .animate-pulse-slow,
+        .animate-spin-slow,
+        .animate-confetti-heart,
+        .animate-shimmer-glow {
+            animation: none;
+        }
     }
 }

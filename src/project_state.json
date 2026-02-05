@@ -1,0 +1,235 @@
+{
+  "schemaVersion": "1.0.0",
+  "projectStateVersion": 13,
+  "summary": "Build a romantic, single-page Valentine’s Day website for Dhara with a cute/elegant design, customized welcome + love letter content, an interactive “Will you be my Valentine?” element (moving ‘No’ button and showing a provided bear-kiss GIF on ‘Yes’), optimized for mobile/desktop and fast performance, and include a music button with the track “Hum Tere Pyaar Mein” by Lata Mangeshkar.",
+  "architectural_notes": [
+    "Single-page responsive site; prioritize performance (lightweight assets, smooth interactions).",
+    "If using an external Tenor GIF URL for the ‘Yes’ modal, lazy-load it and provide a fallback to avoid blocking initial render/performance issues.",
+    "If adding a commercial track to the music button, ensure a valid licensed audio source and use an optimized audio format with lazy loading to avoid impacting initial page performance.",
+    "If the user provides/uploads an audio file for “Hum Tere Pyaar Mein — Lata Mangeshkar”, prefer using it as a local/public asset or direct audio file URL (MP3/OGG) for HTMLAudioElement playback; Spotify track links cannot be played directly in-browser without Spotify SDK/embeds."
+  ],
+  "known_issues": [
+    "Music player cannot play the provided Spotify track link directly; requires a direct audio file URL or the uploaded audio file to be available/linked in the project before real playback works."
+  ],
+  "isFixRequest": false,
+  "existing_features": [
+    {
+      "id": "feature-implement-a-romantic-single-page-valentine-s-day-website-experience-with-three-sections-home-hero-love-letter-valentine-proposal-and-smooth-in-app-navigation-between-sections-no-full-page-reloads",
+      "title": "Implement a romantic, single-page Valentine’s Day website experience with three sections (Home/Hero, Love Letter, Valentine Proposal) and smooth in-app navigation between sections (no full page reloads).",
+      "reqIds": [
+        "REQ-1"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-apply-a-consistent-cute-elegant-valentine-visual-theme-using-a-soft-pink-white-palette-with-subtle-gold-accents-script-style-typography-for-headings-and-clean-sans-serif-for-body-text-use-heart-flower-imagery-as-decorative-elements-throughout-the-page",
+      "title": "Apply a consistent cute + elegant Valentine visual theme using a soft pink/white palette with subtle gold accents, script-style typography for headings, and clean sans-serif for body text; use heart/flower imagery as decorative elements throughout the page.",
+      "reqIds": [
+        "REQ-2"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-update-the-hero-welcome-content-to-display-the-exact-welcome-message-to-my-dearest-dhara-happy-valentine-s-day",
+      "title": "Update the Hero (welcome) content to display the exact welcome message: \"To my dearest Dhara, Happy Valentine's Day!\"",
+      "reqIds": [
+        "REQ-3"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-update-the-love-letter-section-to-use-the-user-provided-message-content-verbatim-formatted-for-readability-multiple-paragraphs-without-changing-the-wording-and-include-an-emphasized-bold-closing-message-exactly-i-will-always-love-you-more-mere-nonuu",
+      "title": "Update the Love Letter section to use the user-provided message content (verbatim), formatted for readability (multiple paragraphs) without changing the wording, and include an emphasized bold closing message exactly: \"I will always love you more mere NONUU 💋\".",
+      "reqIds": [
+        "REQ-4"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-implement-the-interactive-proposal-element-show-will-you-be-my-valentine-with-a-moving-no-button-that-evades-cursor-touch-and-a-yes-button-that-triggers-a-celebratory-animation-state",
+      "title": "Implement the interactive proposal element: show “Will you be my Valentine?” with a moving “No” button that evades cursor/touch, and a “Yes” button that triggers a celebratory animation/state.",
+      "reqIds": [
+        "REQ-5"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-after-clicking-the-yes-button-display-a-gif-showing-two-bunnies-hugging-kissing-along-with-a-clear-message-indicating-the-user-made-the-right-choice-the-gif-should-be-shown-in-a-focused-overlay-modal-state-that-can-be-dismissed-to-continue",
+      "title": "After clicking the Yes button, display a GIF showing two bunnies hugging/kissing along with a clear message indicating the user made the right choice; the GIF should be shown in a focused overlay/modal state that can be dismissed to continue.",
+      "reqIds": [
+        "REQ-6"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-add-a-simple-memories-photo-gallery-section-single-page-using-local-static-images-and-graceful-placeholders-when-no-real-photos-are-provided-do-not-require-backend-storage-or-uploads",
+      "title": "Add a simple “Memories” photo gallery section (single page) using local static images and graceful placeholders when no real photos are provided; do not require backend storage or uploads.",
+      "reqIds": [
+        "REQ-7"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-ensure-the-entire-site-is-fully-responsive-mobile-first-and-performs-smoothly-animations-must-not-cause-jank-on-typical-mobile-devices-and-large-decorative-assets-gifs-should-not-block-initial-render",
+      "title": "Ensure the entire site is fully responsive (mobile-first) and performs smoothly: animations must not cause jank on typical mobile devices, and large decorative assets/GIFs should not block initial render.",
+      "reqIds": [
+        "REQ-8"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-update-the-valentine-proposal-yes-flow-to-display-the-provided-bear-kiss-gif-url-https-media-tenor-com-guiu1zyxfzyaaaai-bear-kiss-bear-kisses-gif-in-the-focused-overlay-modal-state-after-the-user-clicks-yes-replacing-the-currently-used-two-bunnies-hugging-kissing-gif-if-present",
+      "title": "Update the Valentine Proposal 'Yes' flow to display the provided bear-kiss GIF URL (https://media.tenor.com/gUiu1zyxfzYAAAAi/bear-kiss-bear-kisses.gif) in the focused overlay/modal state after the user clicks “Yes”, replacing the currently used 'two bunnies hugging/kissing' GIF if present.",
+      "reqIds": [
+        "REQ-11"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-maintain-fast-loading-and-smooth-navigation-by-ensuring-the-externally-hosted-gif-in-the-yes-modal-does-not-block-initial-page-render-load-it-only-when-the-modal-is-opened-or-otherwise-defer-it",
+      "title": "Maintain fast loading and smooth navigation by ensuring the externally hosted GIF in the “Yes” modal does not block initial page render (load it only when the modal is opened, or otherwise defer it).",
+      "reqIds": [
+        "REQ-12"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-remove-the-our-memories-section-from-the-single-page-valentine-website-so-it-is-no-longer-rendered-in-the-main-page-flow",
+      "title": "Remove the “Our Memories” section from the single-page Valentine website so it is no longer rendered in the main page flow.",
+      "reqIds": [
+        "REQ-13"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-update-site-navigation-to-remove-the-memories-navigation-item-and-any-related-smooth-scroll-behavior-targeting-the-removed-section",
+      "title": "Update site navigation to remove the “Memories” navigation item and any related smooth-scroll behavior targeting the removed section.",
+      "reqIds": [
+        "REQ-14"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-remove-all-decorative-frame-visuals-from-the-page-layout-including-the-heart-border-frame-images-currently-used-as-decorative-elements-in-other-sections",
+      "title": "Remove all decorative “frame” visuals from the page layout, including the heart-border frame images currently used as decorative elements in other sections.",
+      "reqIds": [
+        "REQ-15"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-remove-the-read-love-letter-button-from-the-hero-section-so-it-is-no-longer-rendered-or-clickable",
+      "title": "Remove the “Read Love Letter” button from the Hero section so it is no longer rendered or clickable.",
+      "reqIds": [
+        "REQ-16"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-update-the-floating-music-player-to-include-a-track-entry-labeled-hum-tere-pyaar-mein-lata-mangeshkar-and-display-this-track-name-in-the-player-ui-collapsed-and-or-expanded-state-so-the-user-can-see-what-the-music-button-refers-to",
+      "title": "Update the floating music player to include a track entry labeled “Hum Tere Pyaar Mein — Lata Mangeshkar” and display this track name in the player UI (collapsed and/or expanded state) so the user can see what the music button refers to.",
+      "reqIds": [
+        "REQ-17"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-add-support-for-playing-an-actual-audio-track-in-musicplayer-via-an-htmlaudioelement-using-a-configurable-audio-source-url-or-local-public-asset-path-and-use-it-for-the-hum-tere-pyaar-mein-lata-mangeshkar-track-when-a-valid-source-is-configured-if-no-valid-source-is-configured-gracefully-fall-back-to-the-existing-generated-tone-behavior-without-breaking-the-ui",
+      "title": "Add support for playing an actual audio track in MusicPlayer via an HTMLAudioElement using a configurable audio source (URL or local public asset path), and use it for the “Hum Tere Pyaar Mein — Lata Mangeshkar” track when a valid source is configured; if no valid source is configured, gracefully fall back to the existing generated tone behavior without breaking the UI.",
+      "reqIds": [
+        "REQ-18"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-configure-the-musicplayer-to-play-the-user-uploaded-audio-file-for-the-track-hum-tere-pyaar-mein-lata-mangeshkar-by-setting-the-runtime-audio-source-import-meta-env-vite-hum-tere-pyaar-mein-audio-src-to-the-uploaded-file-s-public-asset-path-so-clicking-play-plays-the-real-song-not-the-fallback-tone",
+      "title": "Configure the MusicPlayer to play the user-uploaded audio file for the track “Hum Tere Pyaar Mein — Lata Mangeshkar” by setting the runtime audio source (import.meta.env.VITE_HUM_TERE_PYAAR_MEIN_AUDIO_SRC) to the uploaded file’s public asset path, so clicking Play plays the real song (not the fallback tone).",
+      "reqIds": [
+        "REQ-19"
+      ],
+      "version": 1
+    }
+  ],
+  "new_feature_requests": [
+    {
+      "id": "AR-1",
+      "summary": "Create a romantic single-page Valentine’s Day website with cute/elegant visual design (palette, typography, hearts/flowers imagery or gallery)",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-2",
+      "summary": "Add interactive ‘Will you be my Valentine?’ prompt with a moving ‘No’ button and a positive ‘Yes’ interaction",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-3",
+      "summary": "On ‘Yes’, display a GIF of two bunnies hugging/kissing indicating the right choice",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-4",
+      "summary": "Include provided content: welcome message to Dhara, full love letter text, and an emphasized bold message (‘I will always love you more mere NONUU (kiss emoji)’)",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-5",
+      "summary": "Ensure full responsiveness (mobile + desktop) and fast loading/smooth navigation performance",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-6",
+      "summary": "On ‘Yes’, display the provided bear-kiss GIF (https://media.tenor.com/gUiu1zyxfzYAAAAi/bear-kiss-bear-kisses.gif) instead of/alongside the previous bunny GIF",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-7",
+      "summary": "Replace the Love Letter section content with the newly provided message text (verbatim) and keep the bold closing message “I will always love you more mere NONUU (kiss emoji)”",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-8",
+      "summary": "Update the Love Letter section to use the newly provided love letter message text verbatim (do not rewrite), formatted for readability (e.g., multiple paragraphs/line breaks as appropriate).",
+      "reqIds": [
+        "REQ-9"
+      ],
+      "status": "pending"
+    },
+    {
+      "id": "AR-9",
+      "summary": "Ensure the Love Letter section includes an emphasized bold closing message that reads: \"I will always love you more mere NONUU 💋\".",
+      "reqIds": [
+        "REQ-10"
+      ],
+      "status": "pending"
+    },
+    {
+      "id": "AR-10",
+      "summary": "Remove the “Our Memories” section and remove all photo frames from the page layout/design",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-11",
+      "summary": "Remove the “Read Love Letter” button from the site UI/navigation",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-12",
+      "summary": "Update the site’s music button to add the track “Hum Tere Pyaar Mein” by Lata Mangeshkar",
+      "reqIds": [],
+      "status": "pending"
+    }
+  ],
+  "gameProjectType": "none",
+  "projectName": "Romantic single-page Valentine’s Day website for Dhara (interactive proposal + updated love letter + bunny GIF)",
+  "clarification_mode": "instant",
+  "clarification_rounds": 0
+}

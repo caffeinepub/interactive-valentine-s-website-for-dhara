@@ -1,0 +1,33 @@
+{
+  "kind": "implementation_plan",
+  "version": "1.0",
+  "title": "Connect uploaded audio asset to MusicPlayer runtime source with safe fallback",
+  "requirements": [
+    {
+      "id": "REQ-19",
+      "summary": "Configure MusicPlayer to use VITE_HUM_TERE_PYAAR_MEIN_AUDIO_SRC pointing to a public audio asset for real playback, while safely falling back to the existing generated-tone behavior if the source is missing or unplayable.",
+      "acceptanceCriteria": [
+        "When VITE_HUM_TERE_PYAAR_MEIN_AUDIO_SRC points to the uploaded audio file (a public asset path), pressing Play starts HTMLAudioElement playback of that file and loops it.",
+        "If the configured source is missing/empty/unplayable, the MusicPlayer continues to function and falls back to the existing generated-tone behavior without UI errors or crashes.",
+        "No Spotify link playback is attempted; playback uses only a direct audio file source (local public asset path)."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/public/assets/ham-tere-pyaar-mein.mp3",
+          "operation": "create",
+          "description": "Add the uploaded audio file as a static public asset at this exact path so it can be referenced by VITE_HUM_TERE_PYAAR_MEIN_AUDIO_SRC (direct local public asset path; no Spotify usage)."
+        },
+        {
+          "path": "frontend/.env",
+          "operation": "create",
+          "description": "Set VITE_HUM_TERE_PYAAR_MEIN_AUDIO_SRC to the public asset path for the uploaded file (e.g., /assets/ham-tere-pyaar-mein.mp3) so the MusicPlayer uses the real track at runtime."
+        },
+        {
+          "path": "frontend/src/components/MusicPlayer.tsx",
+          "operation": "modify",
+          "description": "Update the player logic to (1) initialize HTMLAudioElement from import.meta.env.VITE_HUM_TERE_PYAAR_MEIN_AUDIO_SRC when present, (2) detect missing/unplayable sources (e.g., load/play errors) and automatically fall back to the existing Web Audio tone without crashing, and (3) keep looping/volume/mute behavior consistent across both modes. Use the shadcn-ui Button/Slider/Card components already in this file for UI (Verify the component's usage instructions before implementing)."
+        }
+      ]
+    }
+  ]
+}

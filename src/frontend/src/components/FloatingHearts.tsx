@@ -13,7 +13,7 @@ export default function FloatingHearts() {
   const [hearts, setHearts] = useState<FloatingHeart[]>([]);
 
   useEffect(() => {
-    const newHearts: FloatingHeart[] = Array.from({ length: 15 }, (_, i) => ({
+    const newHearts: FloatingHeart[] = Array.from({ length: 12 }, (_, i) => ({
       id: i,
       left: Math.random() * 100,
       delay: Math.random() * 5,

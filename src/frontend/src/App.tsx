@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import { ThemeProvider } from 'next-themes';
 import Header from './components/Header';
 import Hero from './components/Hero';
@@ -11,8 +10,6 @@ import MusicPlayer from './components/MusicPlayer';
 import Sparkles from './components/Sparkles';
 
 function App() {
-  const [activeSection, setActiveSection] = useState<'home' | 'letter' | 'valentine'>('home');
-
   return (
     <ThemeProvider attribute="class" defaultTheme="light" enableSystem={false}>
       <div className="min-h-screen bg-gradient-to-br from-rose-50 via-pink-50 to-red-50 relative overflow-hidden">
@@ -21,12 +18,20 @@ function App() {
         <FloatingMessages />
         <MusicPlayer />
         
-        <Header activeSection={activeSection} setActiveSection={setActiveSection} />
+        <Header />
         
         <main className="relative z-10">
-          {activeSection === 'home' && <Hero setActiveSection={setActiveSection} />}
-          {activeSection === 'letter' && <LoveLetter />}
-          {activeSection === 'valentine' && <ValentineProposal />}
+          <section id="home">
+            <Hero />
+          </section>
+          
+          <section id="letter">
+            <LoveLetter />
+          </section>
+          
+          <section id="valentine">
+            <ValentineProposal />
+          </section>
         </main>
         
         <Footer />

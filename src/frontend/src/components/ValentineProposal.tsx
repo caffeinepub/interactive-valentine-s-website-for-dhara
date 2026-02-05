@@ -12,16 +12,22 @@ export default function ValentineProposal() {
   const handleYes = () => {
     setAnswered(true);
     setShowConfetti(true);
-    // Show the gif after a brief delay for smooth transition
     setTimeout(() => setShowGif(true), 800);
   };
 
   const handleNoHover = () => {
-    // Move the "No" button to a random position
-    const maxX = window.innerWidth - 200;
-    const maxY = window.innerHeight - 200;
-    const newX = Math.random() * maxX;
-    const newY = Math.random() * maxY;
+    const container = document.getElementById('proposal-container');
+    if (!container) return;
+    
+    const containerRect = container.getBoundingClientRect();
+    const buttonWidth = 150;
+    const buttonHeight = 60;
+    
+    const maxX = containerRect.width - buttonWidth - 40;
+    const maxY = containerRect.height - buttonHeight - 40;
+    
+    const newX = Math.max(20, Math.random() * maxX);
+    const newY = Math.max(20, Math.random() * maxY);
     
     setNoButtonPosition({ x: newX, y: newY });
     setNoButtonAttempts(prev => prev + 1);
@@ -40,7 +46,6 @@ export default function ValentineProposal() {
 
   return (
     <section className="min-h-screen flex items-center justify-center py-20 px-4 relative">
-      {/* Background Pattern */}
       <div 
         className="absolute inset-0 opacity-10 bg-repeat"
         style={{
@@ -52,13 +57,11 @@ export default function ValentineProposal() {
       <div className="container mx-auto max-w-4xl relative z-10">
         {!answered ? (
           <div className="text-center animate-fade-in">
-            {/* Main Question */}
             <div className="mb-12">
               <h1 className="text-5xl md:text-7xl lg:text-8xl font-cursive text-rose-600 mb-6 animate-scale-in">
-                Will you be my Valentine, Dhara?
+                Will you be my Valentine?
               </h1>
               
-              {/* Decorative Hearts */}
               <div className="flex justify-center gap-4 mb-8">
                 <Heart className="w-12 h-12 text-rose-400 fill-rose-400 animate-pulse" />
                 <Heart className="w-16 h-16 text-rose-500 fill-rose-500 animate-pulse" style={{ animationDelay: '0.2s' }} />
@@ -66,18 +69,15 @@ export default function ValentineProposal() {
               </div>
             </div>
 
-            {/* Buttons Container */}
-            <div className="relative h-64 flex items-center justify-center">
-              {/* Yes Button - Always centered */}
+            <div id="proposal-container" className="relative h-64 flex items-center justify-center overflow-hidden">
               <Button
                 onClick={handleYes}
                 size="lg"
-                className="bg-rose-500 hover:bg-rose-600 text-white text-2xl px-12 py-8 rounded-full shadow-2xl transform hover:scale-110 transition-all duration-300 font-semibold"
+                className="bg-rose-500 hover:bg-rose-600 text-white text-2xl px-12 py-8 rounded-full shadow-2xl transform hover:scale-110 transition-all duration-300 font-semibold z-10"
               >
                 Yes 💖
               </Button>
 
-              {/* No Button - Moves around */}
               <Button
                 onClick={handleNoClick}
                 onMouseEnter={handleNoHover}
@@ -96,7 +96,6 @@ export default function ValentineProposal() {
               </Button>
             </div>
 
-            {/* Teasing Message */}
             {noButtonAttempts > 0 && (
               <p className="text-rose-500 text-xl font-cursive mt-8 animate-fade-in">
                 Try again 😘
@@ -105,9 +104,7 @@ export default function ValentineProposal() {
           </div>
         ) : (
           <div className="text-center animate-scale-in">
-            {/* Success Message */}
             <div className="relative">
-              {/* Confetti Hearts */}
               {showConfetti && (
                 <div className="absolute inset-0 pointer-events-none">
                   {[...Array(30)].map((_, i) => (
@@ -135,7 +132,6 @@ export default function ValentineProposal() {
                 You've made me the happiest person alive!
               </p>
 
-              {/* Animated Hearts */}
               <div className="flex justify-center gap-6 mb-12">
                 {[...Array(5)].map((_, i) => (
                   <Heart
@@ -146,11 +142,9 @@ export default function ValentineProposal() {
                 ))}
               </div>
 
-              {/* Playful GIF Overlay - Two Bunnies Kissing */}
               {showGif && (
                 <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/40 backdrop-blur-sm animate-fade-in">
                   <div className="relative bg-white/95 rounded-3xl p-8 shadow-2xl max-w-md mx-4 animate-scale-in">
-                    {/* Floating Hearts around GIF */}
                     <div className="absolute -top-4 -left-4">
                       <Heart className="w-8 h-8 text-rose-400 fill-rose-400 animate-float" />
                     </div>
@@ -164,21 +158,20 @@ export default function ValentineProposal() {
                       <Heart className="w-8 h-8 text-rose-400 fill-rose-400 animate-float" style={{ animationDelay: '0.9s' }} />
                     </div>
 
-                    {/* GIF Image - Two Bunnies Kissing */}
                     <div className="mb-6 rounded-2xl overflow-hidden shadow-lg">
                       <img
-                        src="/assets/generated/two-bunnies-kissing-transparent.dim_400x300.gif"
-                        alt="Two bunnies kissing"
+                        src="https://media.tenor.com/gUiu1zyxfzYAAAAi/bear-kiss-bear-kisses.gif"
+                        alt="Bear kiss animation"
                         className="w-full h-auto"
+                        loading="lazy"
+                        decoding="async"
                       />
                     </div>
 
-                    {/* Message */}
                     <p className="text-3xl font-cursive text-rose-600 mb-6 animate-shimmer-glow">
                       I knew you'd make the right choice 💖
                     </p>
 
-                    {/* Sparkle Hearts */}
                     <div className="flex justify-center gap-3">
                       {[...Array(3)].map((_, i) => (
                         <Heart
@@ -189,7 +182,6 @@ export default function ValentineProposal() {
                       ))}
                     </div>
 
-                    {/* Close Button */}
                     <button
                       onClick={() => setShowGif(false)}
                       className="mt-6 px-6 py-2 bg-rose-500 hover:bg-rose-600 text-white rounded-full font-semibold transition-colors duration-200"
@@ -199,15 +191,6 @@ export default function ValentineProposal() {
                   </div>
                 </div>
               )}
-
-              {/* Decorative Image */}
-              <div className="flex justify-center">
-                <img
-                  src="/assets/generated/heart-border-frame-transparent.dim_400x300.png"
-                  alt="Heart Frame"
-                  className="w-64 h-48 object-contain animate-float"
-                />
-              </div>
             </div>
           </div>
         )}

@@ -1,32 +1,35 @@
 import { Heart, Menu, X } from 'lucide-react';
 import { useState } from 'react';
 import { Button } from '@/components/ui/button';
+import { useSmoothScroll } from '@/hooks/useSmoothScroll';
 
-interface HeaderProps {
-  activeSection: 'home' | 'letter' | 'valentine';
-  setActiveSection: (section: 'home' | 'letter' | 'valentine') => void;
-}
-
-export default function Header({ activeSection, setActiveSection }: HeaderProps) {
+export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const { scrollToSection } = useSmoothScroll();
 
   const navItems = [
-    { id: 'home' as const, label: 'Home' },
-    { id: 'valentine' as const, label: 'Be My Valentine?' },
-    { id: 'letter' as const, label: 'Love Letter' },
+    { id: 'home', label: 'Home' },
+    { id: 'letter', label: 'Love Letter' },
+    { id: 'valentine', label: 'Be My Valentine?' },
   ];
+
+  const handleNavClick = (sectionId: string) => {
+    scrollToSection(sectionId);
+    setMobileMenuOpen(false);
+  };
 
   return (
     <header className="sticky top-0 z-50 backdrop-blur-md bg-white/70 border-b border-rose-200 shadow-sm">
       <div className="container mx-auto px-4 py-4">
         <div className="flex items-center justify-between">
-          <div className="flex items-center gap-2 cursor-pointer" onClick={() => setActiveSection('home')}>
+          <div className="flex items-center gap-2 cursor-pointer" onClick={() => handleNavClick('home')}>
             <div className="relative">
               <Heart className="w-8 h-8 text-rose-500 fill-rose-500 animate-pulse" />
               <img 
                 src="/assets/generated/dhara-monogram-transparent.dim_200x200.png" 
                 alt="Dhara" 
                 className="absolute inset-0 w-8 h-8 object-contain opacity-0 hover:opacity-100 transition-opacity duration-300"
+                loading="lazy"
               />
             </div>
             <span className="text-2xl font-cursive text-rose-600 font-bold">For Dhara</span>
@@ -37,12 +40,8 @@ export default function Header({ activeSection, setActiveSection }: HeaderProps)
             {navItems.map((item) => (
               <button
                 key={item.id}
-                onClick={() => setActiveSection(item.id)}
-                className={`font-medium transition-all duration-300 hover:text-rose-600 ${
-                  activeSection === item.id
-                    ? 'text-rose-600 border-b-2 border-rose-500'
-                    : 'text-rose-800'
-                }`}
+                onClick={() => handleNavClick(item.id)}
+                className="font-medium transition-all duration-300 hover:text-rose-600 text-rose-800"
               >
                 {item.label}
               </button>
@@ -66,15 +65,8 @@ export default function Header({ activeSection, setActiveSection }: HeaderProps)
             {navItems.map((item) => (
               <button
                 key={item.id}
-                onClick={() => {
-                  setActiveSection(item.id);
-                  setMobileMenuOpen(false);
-                }}
-                className={`text-left py-2 px-4 rounded-lg transition-all duration-300 ${
-                  activeSection === item.id
-                    ? 'bg-rose-100 text-rose-700 font-semibold'
-                    : 'text-rose-800 hover:bg-rose-50'
-                }`}
+                onClick={() => handleNavClick(item.id)}
+                className="text-left py-2 px-4 rounded-lg transition-all duration-300 text-rose-800 hover:bg-rose-50"
               >
                 {item.label}
               </button>

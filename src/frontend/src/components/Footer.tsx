@@ -14,7 +14,7 @@ export default function Footer() {
           </div>
           
           <p className="text-rose-600 text-sm">
-            © 2025. Built with <Heart className="w-4 h-4 inline text-rose-500 fill-rose-500" /> using{' '}
+            © 2026. Built with <Heart className="w-4 h-4 inline text-rose-500 fill-rose-500" /> using{' '}
             <a 
               href="https://caffeine.ai" 
               target="_blank" 
